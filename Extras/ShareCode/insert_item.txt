@@ -1,0 +1,27 @@
+$details = "UPDATE Users
+                  SET firstname = '$firstname', lastname = '$lastname', addressline1 = '$addressline1', addressline2 = '$addressline2', city = '$city', postcode = '$postcode', phone = '$phone'
+                  WHERE userid = '$id'"
+
+
+INSERT Items
+SET category = "Electronics", photo = "img1.jpg", title = "iPhoneXS", colour = "Navy", size = "177 grams", desc1 = "most powerful iphone"
+
+INSERT Items
+    (category, photo, title, colour, size, desc1, desc2)
+VALUES
+    ("shoes", "img2.png", "Brogue Shoes", "Black", "11", "New", "Desc2"),
+    ("shoes", "img3.png", "Running Shoes", "Grey", "9", "New", "Desc2"),
+    ("shoes", "img4.png", "High Heels", "Red", "16", "New", "Desc2");
+# this works as long as you fill up all the cols
+
+
+
+SET category = "Electronics", photo = "img1.jpg", title = "iPhoneXS", colour = "Navy", size = "177 grams", desc1 = "most powerful iphone"
+
+
+
+
+
+
+
+	category	photo	title	colour	size	desc1	desc2

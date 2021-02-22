@@ -1,0 +1,18 @@
+SELECT email, firstname, lastname
+FROM Users u, Bids b, Watch w
+WHERE b.auctionid = 3
+AND w.auctionid = 3
+AND b.buyerid != 2
+AND w.userid != 2
+AND(u.userid = b.buyerid OR u.userid = w.userid)
+
+
+http://localhost:8888/frontend/Validate/new/home.php?query=SELECT+i.photo%2C+i.title%2C+i.category%2C+i.cndtn%2C+i.colour%2C+i.desc1%2C+a.endDate%2C+MAX%28b.bidValue%29+as+maxBid%2C+a.startPrice%2C+a.reservePrice%2C+a.auctionid%0A++++++++++++FROM+Auction+a%0A++++++++++++LEFT+JOIN+Bids+b+ON+b.auctionid+%3D+a.auctionid%0A++++++++++++LEFT+JOIN+Items+i+ON+a.itemid+%3D+i.itemid%0A++++++++++++WHERE+a.isFinished+%3D+0+AND+a.auctionid+not+in+%28SELECT+auctionid+FROM+Auction+WHERE+sellerid+%3D+%29+GROUP+BY+a.auctionid
+
+SELECT i.photo, i.title, i.category, i.cndtn, i.colour, i.desc1, a.endDate, MAX(b.bidValue) as maxBid, a.startPrice, a.reservePrice, a.auctionid
+FROM Auction a
+LEFT JOIN Bids b ON b.auctionid = a.auctionid
+LEFT JOIN Items i ON a.itemid = i.itemid
+WHERE a.isFinished = 0
+AND a.auctionid not in (SELECT auctionid FROM Auction WHERE sellerid = 3)
+GROUP BY a.auctionid
